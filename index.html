@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISC 322</title>
+    <script src="https://cdn.tailwindcss.com">
+       
+    </script>
+</head>
+<body>
+    <span class="p-5 font-bold text-8xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">
+        Past Assignments.
+    </span>
+    
+    <div class="p-5 font-bold text-transparent ">
+        <span class="bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">Alex Aselstyne, Daniel Dinari, Jake Nagel, Jack Peter, Ryan Pleava</span>
+    </div>
+    <div id="list" class="flex flex-row"></div>
+
+</body>
+<script>
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    console.log(year)
+    console.log(month)
+    console.log(day)
+    let uploads_so_far = 0
+    // October
+    if (month >= 10) {
+        if (day >= 25 || month > 10){
+            uploads_so_far += 1
+        }
+    }
+    // November
+    if (month >= 11) {
+        if (day >= 22 || month > 11){
+            uploads_so_far += 1
+        }
+    }
+    // December
+    if (month >= 12) {
+        if (day >= 8 || month > 12){
+            uploads_so_far += 1
+        }
+    }
+
+    uploads_so_far = 3
+    const list = document.getElementById("list")
+    for (let i = 1; i <= uploads_so_far; i++) {
+        const upload = document.createElement('a')
+        upload.className = 'p-5 text-white font-bold m-8 rounded-xl bg-green-600'
+        upload.innerHTML = `Assignment ${i}`
+        upload.href = `./A${i}.pdf`
+        list.appendChild(upload)
+    }
+</script>
+</html>
